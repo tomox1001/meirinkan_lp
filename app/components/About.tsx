@@ -45,14 +45,13 @@ export default function About() {
           </div>
           <div className="w-full md:w-1/2">
             <p className="text-base leading-relaxed mb-6">
-              私たち明倫館は「礼」を大切に、相手を思いやる心を育み、「強く・正しく・美しい」剣道を目指して、日々稽古に励んでいます。
+              私たちは「礼」を大切に、相手を思いやる心を育み、「強く・正しく・美しい」剣道を目指して、日々稽古に励んでいます。
             </p>
             <p className="text-base leading-relaxed mb-6">
               剣道は日本古来の伝統文化を守り、礼節を尊び、年齢・性別を問わず、子供から大人まで同じ目標に向かって実践できる素晴らしい生涯スポーツです。
             </p>
             <p className="text-base leading-relaxed mb-6">
               楽しく仲間と剣道を学ぶうちに、規律正しく、忍耐力のある強靭な身体と精神力を養います。
-              <br/>
               保護者の方も親子の絆を深め、ともに良い仲間になれる場所です。
             </p>
           </div>
