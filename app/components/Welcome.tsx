@@ -97,7 +97,9 @@ export default function Welcome() {
         </div>
 
         <p className="text-center text-base mt-6 max-w-lg mx-auto">
-          稽古だけじゃない！クリスマス会など楽しいイベントも盛りだくさん！
+          稽古だけじゃない！
+          <br />
+          クリスマス会など楽しいイベントも盛りだくさん！
         </p>
       </div>
     </section>

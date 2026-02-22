@@ -45,7 +45,7 @@ export default function About() {
           </div>
           <div className="w-full md:w-1/2">
             <p className="text-base leading-relaxed mb-6">
-              明倫館は剣道クラブです。「礼」を大切に、相手を思いやる心を育み、「強く・正しく・美しい」剣道を目指して、日々稽古に励んでいます。
+              私たちは「礼」を大切に、相手を思いやる心を育み、「強く・正しく・美しい」剣道を目指して、日々稽古に励んでいます。
             </p>
             <p className="text-base leading-relaxed text-darkgray/80">
               男女年齢関係なく、いつもお互いを励まし合える関係性が、明倫館の良さです。

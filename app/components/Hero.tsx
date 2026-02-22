@@ -42,7 +42,7 @@ export default function Hero() {
           <br className="hidden sm:block" />
           礼とは「礼儀」つまり「相手を大事にする心」のことです。
           <br className="hidden sm:block" />
-          明倫館は、みんなではげまし合い、心と体をきたえています。
+          明倫館は、みんなで励まし合い、心と体を鍛えています。
         </p>
         <MailtoButton className="inline-block font-bold text-white bg-shu hover:bg-shu-dark px-8 py-4 rounded-lg text-base sm:text-lg transition-colors shadow-md cursor-pointer">
           体験のお申し込み
