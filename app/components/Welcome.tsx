@@ -1,67 +1,48 @@
 import Image from "next/image";
+import { Heart, Users } from "lucide-react";
+
+const ShinaiIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {/* 竹刀の柄 */}
+    <line x1="6" y1="20" x2="10" y2="14" />
+    {/* 鍔（つば） */}
+    <ellipse cx="10.5" cy="13.5" rx="1.8" ry="0.8" transform="rotate(-50 10.5 13.5)" />
+    {/* 竹刀の刀身（4本竹） */}
+    <line x1="11" y1="13" x2="19" y2="3" strokeWidth="2.5" />
+    {/* 先革 */}
+    <circle cx="19.3" cy="2.7" r="0.8" fill="currentColor" stroke="none" />
+  </svg>
+);
+
+const MakimonoIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {/* 巻物本体 */}
+    <path d="M5 6h14c0 0 1 0 1 1v10c0 1-1 1-1 1H5" />
+    {/* 左の軸 */}
+    <line x1="5" y1="4" x2="5" y2="20" strokeWidth="2" />
+    <circle cx="5" cy="4" r="1.2" fill="currentColor" stroke="none" />
+    <circle cx="5" cy="20" r="1.2" fill="currentColor" stroke="none" />
+    {/* 巻物の文字ライン */}
+    <line x1="9" y1="10" x2="16" y2="10" strokeWidth="1" />
+    <line x1="9" y1="13" x2="14" y2="13" strokeWidth="1" />
+  </svg>
+);
 
 const reasons = [
   {
-    icon: (
-      /* 竹刀アイコン — 剣道に興味がある子 */
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <line x1="10" y1="38" x2="36" y2="12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="36" y1="12" x2="40" y2="8" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-        <circle cx="13" cy="35" r="3" stroke="currentColor" strokeWidth="2" fill="none" />
-      </svg>
-    ),
+    icon: <ShinaiIcon className="w-9 h-9" />,
     title: "剣道に興味がある子",
   },
   {
-    icon: (
-      /* お辞儀アイコン — 礼儀を身に付けたい子 */
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="24" cy="12" r="5" stroke="currentColor" strokeWidth="2" />
-        <path d="M24 17v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M24 21c0 0-2 8-8 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M24 21c0 0 2 8 8 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M18 26h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M20 38h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <Heart className="w-9 h-9" />,
     title: "礼儀を身に付けたい子",
   },
   {
-    icon: (
-      /* 手をつなぐ仲間アイコン — 友だちを作りたい子 */
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="2" />
-        <circle cx="34" cy="14" r="4" stroke="currentColor" strokeWidth="2" />
-        <path d="M14 19v6c0 2 1 3 3 3h14c2 0 3-1 3-3v-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="24" cy="18" r="3.5" stroke="currentColor" strokeWidth="2" />
-        <path d="M24 22v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M14 25v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M34 25v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M19 38h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 3" />
-      </svg>
-    ),
+    icon: <Users className="w-9 h-9" />,
     title: "友だちを作りたい子",
   },
   {
-    icon: (
-      /* 武将（兜）アイコン — 武将や刀が好きな子 */
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        {/* 兜の前立て */}
-        <path d="M24 4v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M20 6l4 6 4-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        {/* 兜本体 */}
-        <path d="M12 18c0-5 5-8 12-8s12 3 12 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M10 20h28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        {/* 吹き返し */}
-        <path d="M10 20l-2 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M38 20l2 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        {/* 面 */}
-        <path d="M14 22v6c0 5 4 8 10 8s10-3 10-8v-6" stroke="currentColor" strokeWidth="2" />
-        {/* 目 */}
-        <line x1="18" y1="28" x2="22" y2="28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="26" y1="28" x2="30" y2="28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <MakimonoIcon className="w-9 h-9" />,
     title: "武将や刀が好きな子など",
   },
 ];
