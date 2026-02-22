@@ -3,7 +3,15 @@
 const info = [
   {
     label: "日時",
-    value: "日曜日 16:00〜18:00",
+    value: (
+      <>
+        日曜日 16:00〜18:00
+        <br />
+        <span className="text-sm font-normal text-darkgray/60">
+          ※ 夏時期は16:30開始
+        </span>
+      </>
+    ),
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <circle cx="12" cy="12" r="10" />
@@ -23,7 +31,7 @@ const info = [
   },
   {
     label: "対象",
-    value: "小学生、中学生、一般成人",
+    value: "小学生がメインですが、中学生・一般の方も歓迎です",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
