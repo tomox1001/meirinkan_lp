@@ -3,36 +3,63 @@ import Image from "next/image";
 const reasons = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      /* 竹刀アイコン — 剣道に興味がある子 */
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <line x1="10" y1="38" x2="36" y2="12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="36" y1="12" x2="40" y2="8" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+        <circle cx="13" cy="35" r="3" stroke="currentColor" strokeWidth="2" fill="none" />
       </svg>
     ),
     title: "剣道に興味がある子",
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      /* お辞儀アイコン — 礼儀を身に付けたい子 */
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="24" cy="12" r="5" stroke="currentColor" strokeWidth="2" />
+        <path d="M24 17v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M24 21c0 0-2 8-8 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M24 21c0 0 2 8 8 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M18 26h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M20 38h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
     title: "礼儀を身に付けたい子",
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      /* 手をつなぐ仲間アイコン — 友だちを作りたい子 */
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="2" />
+        <circle cx="34" cy="14" r="4" stroke="currentColor" strokeWidth="2" />
+        <path d="M14 19v6c0 2 1 3 3 3h14c2 0 3-1 3-3v-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="24" cy="18" r="3.5" stroke="currentColor" strokeWidth="2" />
+        <path d="M24 22v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M14 25v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M34 25v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M19 38h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 3" />
       </svg>
     ),
     title: "友だちを作りたい子",
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-        <polyline points="14 2 14 8 20 8" />
+      /* 武将（兜）アイコン — 武将や刀が好きな子 */
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        {/* 兜の前立て */}
+        <path d="M24 4v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M20 6l4 6 4-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        {/* 兜本体 */}
+        <path d="M12 18c0-5 5-8 12-8s12 3 12 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M10 20h28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        {/* 吹き返し */}
+        <path d="M10 20l-2 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M38 20l2 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        {/* 面 */}
+        <path d="M14 22v6c0 5 4 8 10 8s10-3 10-8v-6" stroke="currentColor" strokeWidth="2" />
+        {/* 目 */}
+        <line x1="18" y1="28" x2="22" y2="28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="26" y1="28" x2="30" y2="28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
     title: "武将や刀が好きな子など",
