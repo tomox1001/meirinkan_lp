@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>明倫館 デザイン案C - カード型情報整理</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ai: '#1B3A5C',
+        'ai-light': '#EDF2F7',
+        shu: '#C53D43',
+        'shu-dark': '#A83238',
+        offwhite: '#FAFAF5',
+        darkgray: '#2D2D2D',
+      },
+      fontFamily: {
+        serif: ['Noto Serif JP', 'serif'],
+        sans: ['Noto Sans JP', 'sans-serif'],
+      },
+    },
+  },
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #EDF2F7; color: #2D2D2D; font-family: 'Noto Sans JP', sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+  <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-ai rounded flex items-center justify-center">
+        <span class="font-serif text-white text-xs">明</span>
+      </div>
+      <span class="font-serif text-ai text-sm tracking-widest">明倫館</span>
+    </div>
+    <a href="#trial" class="bg-shu text-white text-xs px-4 py-2 rounded-lg font-medium transition hover:bg-shu-dark">
+      体験申込み
+    </a>
+  </div>
+</nav>
+
+<!-- ヒーロー -->
+<section class="pt-16 pb-6 px-4">
+  <div class="max-w-md mx-auto">
+    <!-- ヒーロー写真カード -->
+    <div class="bg-gradient-to-br from-ai to-ai/80 rounded-2xl overflow-hidden shadow-lg relative">
+      <!-- 写真プレースホルダー -->
+      <div class="aspect-[16/10] flex flex-col items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ai/90"></div>
+        <svg class="w-12 h-12 text-white/15 mb-2 relative z-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.04l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+        <span class="text-white/20 text-xs relative z-0">稽古風景の写真</span>
+
+        <!-- テキストオーバーレイ -->
+        <div class="absolute bottom-0 left-0 right-0 p-5 z-10">
+          <p class="text-white/50 text-[10px] tracking-[0.3em] mb-1">剣道クラブ</p>
+          <h1 class="font-serif text-white text-2xl tracking-wider leading-relaxed">
+            <ruby>礼<rp>(</rp><rt class="text-[8px] font-sans">れい</rt><rp>)</rp></ruby>にはじまり　<ruby>礼<rp>(</rp><rt class="text-[8px] font-sans">れい</rt><rp>)</rp></ruby>におわる
+          </h1>
+        </div>
+      </div>
+
+      <div class="px-5 pb-5 pt-3">
+        <p class="text-white/70 text-xs leading-relaxed mb-4">
+          礼とは「相手を大事にする心」のこと。これは剣道で一番大切なことです。
+        </p>
+        <a href="#trial" class="block w-full bg-shu text-white text-center text-sm font-medium py-3 rounded-lg transition hover:bg-shu-dark">
+          体験のお申し込み
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 明倫館について -->
+<section id="about" class="py-6 px-4">
+  <div class="max-w-md mx-auto">
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+      <div class="p-5 pb-3">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-1 h-5 bg-shu rounded-full"></div>
+          <h2 class="font-serif text-ai text-lg tracking-wider">明倫館について</h2>
+        </div>
+
+        <!-- 写真プレースホルダー -->
+        <div class="bg-ai-light rounded-xl aspect-video flex flex-col items-center justify-center mb-4">
+          <svg class="w-8 h-8 text-ai/15 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.04l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+          <span class="text-ai/20 text-[10px]">写真準備中</span>
+        </div>
+
+        <p class="text-sm leading-relaxed text-darkgray/70">
+          明倫館は剣道クラブです。「礼」を大切に、相手を思いやる心を育み、日々稽古に励んでいます。
+        </p>
+      </div>
+
+      <!-- 三つの柱カード -->
+      <div class="grid grid-cols-3 border-t border-ai/5">
+        <div class="text-center py-5 border-r border-ai/5">
+          <div class="w-10 h-10 bg-ai/5 rounded-full flex items-center justify-center mx-auto mb-2">
+            <span class="font-serif text-ai text-lg">強</span>
+          </div>
+          <p class="text-xs font-medium text-darkgray">強く</p>
+        </div>
+        <div class="text-center py-5 border-r border-ai/5">
+          <div class="w-10 h-10 bg-ai/5 rounded-full flex items-center justify-center mx-auto mb-2">
+            <span class="font-serif text-ai text-lg">正</span>
+          </div>
+          <p class="text-xs font-medium text-darkgray">正しく</p>
+        </div>
+        <div class="text-center py-5">
+          <div class="w-10 h-10 bg-ai/5 rounded-full flex items-center justify-center mx-auto mb-2">
+            <span class="font-serif text-ai text-lg">美</span>
+          </div>
+          <p class="text-xs font-medium text-darkgray">美しく</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 引用カード -->
+    <div class="bg-ai rounded-2xl p-5 mt-3 shadow-sm">
+      <p class="text-white/80 text-sm leading-relaxed text-center">
+        男女年齢関係なく、いつもお互いを<br>励まし合える関係性が明倫館の良さです。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- こんな子を歓迎 -->
+<section class="py-6 px-4">
+  <div class="max-w-md mx-auto">
+    <div class="flex items-center gap-2 mb-3 px-1">
+      <div class="w-1 h-5 bg-shu rounded-full"></div>
+      <h2 class="font-serif text-ai text-lg tracking-wider">こんな子を歓迎</h2>
+    </div>
+
+    <!-- 写真プレースホルダー -->
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-3">
+      <div class="bg-ai-light aspect-[16/7] flex flex-col items-center justify-center">
+        <svg class="w-8 h-8 text-ai/15 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.04l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+        <span class="text-ai/20 text-[10px]">写真準備中</span>
+      </div>
+    </div>
+
+    <!-- 2x2 グリッドカード -->
+    <div class="grid grid-cols-2 gap-3">
+      <div class="bg-white rounded-2xl p-4 shadow-sm">
+        <div class="w-9 h-9 bg-shu/10 rounded-lg flex items-center justify-center mb-3">
+          <svg class="w-5 h-5 text-shu" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+        </div>
+        <p class="font-medium text-sm text-darkgray mb-1">刀が好きな子</p>
+        <p class="text-[11px] text-darkgray/40 leading-relaxed">その「好き」が原動力</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-sm">
+        <div class="w-9 h-9 bg-shu/10 rounded-lg flex items-center justify-center mb-3">
+          <svg class="w-5 h-5 text-shu" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+        </div>
+        <p class="font-medium text-sm text-darkgray mb-1">礼儀を身に付けたい子</p>
+        <p class="text-[11px] text-darkgray/40 leading-relaxed">自然に「ありがとう」が出る子に</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-sm">
+        <div class="w-9 h-9 bg-shu/10 rounded-lg flex items-center justify-center mb-3">
+          <svg class="w-5 h-5 text-shu" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+        </div>
+        <p class="font-medium text-sm text-darkgray mb-1">友だちを作りたい子</p>
+        <p class="text-[11px] text-darkgray/40 leading-relaxed">学年を超えた仲間ができます</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-ai to-ai/90 rounded-2xl p-4 shadow-sm flex flex-col justify-center">
+        <p class="text-white text-sm leading-relaxed text-center">
+          きっかけは<br>それぞれで<br>
+          <span class="text-shu font-medium">OK!</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 稽古案内 -->
+<section id="practice" class="py-6 px-4">
+  <div class="max-w-md mx-auto">
+    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+      <div class="p-5 pb-3">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-1 h-5 bg-shu rounded-full"></div>
+          <h2 class="font-serif text-ai text-lg tracking-wider">稽古案内</h2>
+        </div>
+
+        <!-- 写真プレースホルダー -->
+        <div class="bg-ai-light rounded-xl aspect-video flex flex-col items-center justify-center mb-4">
+          <svg class="w-8 h-8 text-ai/15 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.04l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+          <span class="text-ai/20 text-[10px]">稽古場所の写真準備中</span>
+        </div>
+      </div>
+
+      <!-- 情報リスト -->
+      <div class="border-t border-ai/5">
+        <div class="flex items-center px-5 py-4 border-b border-ai/5">
+          <div class="w-8 h-8 bg-ai/5 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+            <svg class="w-4 h-4 text-ai/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <p class="text-[10px] text-darkgray/40 mb-0.5">日時</p>
+            <p class="text-sm font-medium">日曜日 16:00〜18:00</p>
+          </div>
+        </div>
+        <div class="flex items-center px-5 py-4 border-b border-ai/5">
+          <div class="w-8 h-8 bg-ai/5 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+            <svg class="w-4 h-4 text-ai/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          </div>
+          <div>
+            <p class="text-[10px] text-darkgray/40 mb-0.5">場所</p>
+            <p class="text-sm text-darkgray/40">（後日追記）</p>
+          </div>
+        </div>
+        <div class="flex items-center px-5 py-4">
+          <div class="w-8 h-8 bg-ai/5 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+            <svg class="w-4 h-4 text-ai/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+          </div>
+          <div>
+            <p class="text-[10px] text-darkgray/40 mb-0.5">対象</p>
+            <p class="text-sm font-medium">小学生</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 体験のご案内 -->
+<section id="trial" class="py-6 px-4 pb-10">
+  <div class="max-w-md mx-auto">
+    <div class="bg-gradient-to-br from-shu to-shu-dark rounded-2xl p-6 shadow-lg text-center">
+      <h2 class="font-serif text-white text-xl tracking-wider mb-2">体験のご案内</h2>
+      <p class="text-white/70 text-xs leading-relaxed mb-6">
+        まずは、体験で剣道を身近に感じてください。<br>ご連絡お待ちしております。
+      </p>
+
+      <!-- 写真プレースホルダー -->
+      <div class="bg-white/15 rounded-xl aspect-video flex flex-col items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-white/20 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.04l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+        <span class="text-white/25 text-[10px]">体験稽古の写真準備中</span>
+      </div>
+
+      <a href="mailto:meirinkan2021@gmail.com" class="inline-block w-full bg-white text-shu text-sm font-bold py-3.5 rounded-xl transition hover:bg-offwhite shadow-md">
+        体験のお申し込み
+      </a>
+
+      <div class="mt-4 flex items-center justify-center gap-2">
+        <svg class="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        <a href="mailto:meirinkan2021@gmail.com" class="text-white/50 text-xs underline underline-offset-2 hover:text-white/70 transition">
+          meirinkan2021@gmail.com
+        </a>
+      </div>
+      <p class="text-white/30 text-[10px] mt-2">お気軽にお問合せください</p>
+
+      <div class="mt-4">
+        <img src="public/images/QR.png" alt="お問い合わせQRコード" class="w-20 h-20 mx-auto">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="bg-ai py-8 px-4">
+  <div class="max-w-md mx-auto">
+    <div class="flex items-center justify-center gap-2 mb-3">
+      <div class="w-6 h-6 bg-white/10 rounded flex items-center justify-center">
+        <span class="font-serif text-white text-[10px]">明</span>
+      </div>
+      <span class="font-serif text-white/70 text-sm tracking-widest">明倫館</span>
+    </div>
+    <p class="text-center text-white/30 text-[10px] mb-4">剣道クラブ（2021年設立）</p>
+
+    <div class="flex justify-center gap-1 mb-4">
+      <a href="#about" class="text-white/20 text-[10px] px-2 py-1 rounded hover:text-white/50 hover:bg-white/5 transition">明倫館について</a>
+      <a href="#practice" class="text-white/20 text-[10px] px-2 py-1 rounded hover:text-white/50 hover:bg-white/5 transition">稽古案内</a>
+      <a href="#trial" class="text-white/20 text-[10px] px-2 py-1 rounded hover:text-white/50 hover:bg-white/5 transition">体験申込み</a>
+    </div>
+
+    <p class="text-center text-white/10 text-[10px]">&copy; 2025 明倫館 All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
