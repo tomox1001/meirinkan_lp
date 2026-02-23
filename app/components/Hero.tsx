@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center px-6 py-12 max-w-2xl mx-auto">
-        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-wider mb-6">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-wider mb-6 animate-fade-in-up">
           <ruby>
             礼<rp>(</rp><rt>れい</rt><rp>)</rp>
           </ruby>
@@ -37,14 +37,14 @@ export default function Hero() {
           </ruby>
           におわる
         </h1>
-        <div className="w-16 h-px bg-white/60 mx-auto mb-6" />
-        <p className="text-base sm:text-lg text-white/90 font-sans leading-relaxed mb-10">
+        <div className="w-16 h-px bg-white/60 mx-auto mb-6 animate-fade-in-up [animation-delay:0.4s] opacity-0 [animation-fill-mode:forwards]" />
+        <p className="text-base sm:text-lg text-white/90 font-sans leading-relaxed mb-10 animate-fade-in-up [animation-delay:0.7s] opacity-0 [animation-fill-mode:forwards]">
           <br className="hidden sm:block" />
           礼とは「礼儀」つまり「相手を大事にする心」のことです。
           <br className="hidden sm:block" />
           明倫館は、みんなで励まし合い、心と体を鍛えています。
         </p>
-        <MailtoButton className="inline-block font-bold text-white bg-shu hover:bg-shu-dark px-8 py-4 rounded-lg text-base sm:text-lg transition-colors shadow-md cursor-pointer">
+        <MailtoButton className="inline-block font-bold text-white bg-shu hover:bg-shu-dark px-8 py-4 rounded-lg text-base sm:text-lg transition-colors shadow-md cursor-pointer animate-fade-in-up [animation-delay:1.0s] opacity-0 [animation-fill-mode:forwards]">
           体験のお申し込み
         </MailtoButton>
       </div>
