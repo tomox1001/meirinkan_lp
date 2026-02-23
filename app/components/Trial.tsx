@@ -26,8 +26,8 @@ export default function Trial() {
           <span className="flex items-center gap-1.5 text-sm md:text-base font-bold text-ai">
             <span className="text-shu">✓</span> 体験無料
           </span>
-          <span className="bg-ai text-white text-sm md:text-base font-bold px-4 py-1.5 rounded-full">
-            手ぶらでOK!
+          <span className="flex items-center gap-1.5 text-sm md:text-base font-bold text-ai">
+            <span className="text-shu">✓</span> 手ぶらでOK!
           </span>
           <span className="flex items-center gap-1.5 text-sm md:text-base font-bold text-ai">
             <span className="text-shu">✓</span> 動きやすい服装だけ
