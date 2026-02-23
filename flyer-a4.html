@@ -1,870 +1,972 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>明倫館 部員募集チラシ A4</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B3A5C'/><text x='16' y='24' text-anchor='middle' font-size='22' font-weight='700' fill='white' font-family='serif'>明</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  /* ===== リセット & ベース ===== */
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --ai: #1B3A5C;
-    --ai-deep: #0F2640;
-    --ai-mid: #2A4F75;
-    --ai-light: #EDF2F7;
-    --shu: #C53D43;
-    --shu-dark: #A83238;
-    --offwhite: #FAFAF5;
-    --darkgray: #2D2D2D;
-    --gold: #B8963E;
-  }
-
-  body {
-    background: #888;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    min-height: 100vh;
-    font-family: 'Noto Sans JP', sans-serif;
-    color: var(--darkgray);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ===== A4ページ ===== */
-  .page {
-    width: 210mm;
-    height: 297mm;
-    background: var(--offwhite);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-  }
-
-  /* ===== 印刷設定 ===== */
-  @media print {
-    body { background: none; padding: 0; margin: 0; }
-    .page { box-shadow: none; margin: 0; width: 210mm; height: 297mm; }
-    @page { size: A4 portrait; margin: 0; }
-  }
-
-  /* ===== 背景の和柄パターン ===== */
-  .page::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.025;
-    background-image: radial-gradient(circle at 2px 2px, var(--ai) 1px, transparent 1px);
-    background-size: 12mm 12mm;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ===== ヘッダー帯 ===== */
-  .header-band {
-    background: linear-gradient(135deg, var(--ai-deep) 0%, var(--ai) 40%, var(--ai-mid) 100%);
-    height: 72mm;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .header-band::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.06;
-    background-image:
-      linear-gradient(30deg, transparent 40%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0.5) 41%, transparent 41%),
-      linear-gradient(150deg, transparent 40%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0.5) 41%, transparent 41%),
-      linear-gradient(90deg, transparent 49%, rgba(255,255,255,0.5) 49%, rgba(255,255,255,0.5) 51%, transparent 51%);
-    background-size: 20mm 34.6mm;
-    pointer-events: none;
-  }
-
-  .header-band::after {
-    content: '';
-    position: absolute;
-    top: 10mm;
-    bottom: 10mm;
-    left: 12mm;
-    right: 12mm;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 2px;
-    pointer-events: none;
-  }
-
-  .header-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 0 20mm;
-  }
-
-  .club-label {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 300;
-    font-size: 2.8mm;
-    letter-spacing: 0.8em;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 2.5mm;
-  }
-
-  .club-name {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 12mm;
-    color: #fff;
-    letter-spacing: 0.15em;
-    margin-bottom: 3mm;
-    line-height: 1;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-
-  .divider-line {
-    width: 25mm;
-    height: 0.3mm;
-    background: var(--gold);
-    margin: 0 auto 3mm;
-    opacity: 0.7;
-  }
-
-  .recruit-copy {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 8mm;
-    color: #fff;
-    letter-spacing: 0.12em;
-    line-height: 1.5;
-    margin-bottom: 3mm;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  }
-
-  .catchcopy-sub {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 400;
-    font-size: 2.6mm;
-    color: rgba(255,255,255,0.55);
-    letter-spacing: 0.08em;
-    line-height: 1.7;
-  }
-
-  /* 「部員募集」リボン */
-  .recruit-badge {
-    position: absolute;
-    top: 0;
-    right: 18mm;
-    background: var(--shu);
-    color: #fff;
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 5mm;
-    letter-spacing: 0.2em;
-    padding: 4mm 4mm 5mm;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    z-index: 2;
-    box-shadow: 0 3px 10px rgba(197,61,67,0.3);
-  }
-  .recruit-badge::after {
-    content: '';
-    position: absolute;
-    bottom: -3mm;
-    left: 0;
-    right: 0;
-    height: 3mm;
-    background: linear-gradient(to bottom right, var(--shu) 50%, transparent 50%),
-                linear-gradient(to bottom left, var(--shu) 50%, transparent 50%);
-    background-size: 50% 100%;
-    background-repeat: no-repeat;
-    background-position: left, right;
-  }
-
-  /* ===== メインコンテンツ ===== */
-  .main-content {
-    padding: 5mm 12mm 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* 紹介文 */
-  .intro-section {
-    text-align: center;
-    margin-bottom: 4mm;
-    padding: 0 5mm;
-  }
-
-  .intro-text {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 400;
-    font-size: 3mm;
-    line-height: 1.9;
-    color: var(--darkgray);
-    letter-spacing: 0.04em;
-  }
-
-  .intro-highlight {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 600;
-    color: var(--ai);
-  }
-
-  /* 三つの柱 */
-  .pillars {
-    display: flex;
-    justify-content: center;
-    gap: 6mm;
-    margin-bottom: 5mm;
-  }
-
-  .pillar { text-align: center; }
-
-  .pillar-circle {
-    width: 13mm;
-    height: 13mm;
-    border-radius: 50%;
-    border: 0.4mm solid var(--ai);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5mm;
-    background: rgba(27,58,92,0.03);
-  }
-
-  .pillar-kanji {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 5mm;
-    color: var(--ai);
-  }
-
-  .pillar-label {
-    font-size: 2.3mm;
-    color: var(--ai);
-    font-weight: 500;
-    letter-spacing: 0.1em;
-  }
-
-  /* ===== 写真エリア（中央2枚） ===== */
-  .photo-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4mm;
-    margin: 0 5mm 5mm;
-  }
-
-  .photo-main-col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .photo-main-item {
-    border-radius: 2.5mm;
-    position: relative;
-    overflow: hidden;
-    height: 52mm;
-  }
-
-  .photo-main-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* 写真エリアの角装飾 */
-  .photo-main-item::before,
-  .photo-main-item::after {
-    content: '';
-    position: absolute;
-    width: 5mm;
-    height: 5mm;
-    border-color: rgba(255,255,255,0.5);
-    border-style: solid;
-    z-index: 1;
-  }
-  .photo-main-item::before {
-    top: 2.5mm;
-    left: 2.5mm;
-    border-width: 0.4mm 0 0 0.4mm;
-  }
-  .photo-main-item::after {
-    bottom: 2.5mm;
-    right: 2.5mm;
-    border-width: 0 0.4mm 0.4mm 0;
-  }
-
-  .photo-caption {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 500;
-    font-size: 3mm;
-    color: var(--darkgray);
-    text-align: center;
-    margin-top: 2mm;
-    line-height: 1.6;
-    letter-spacing: 0.04em;
-  }
-
-  /* セクション見出し */
-  .section-heading {
-    display: flex;
-    align-items: center;
-    gap: 2.5mm;
-    margin-bottom: 3mm;
-  }
-
-  .section-heading-icon {
-    width: 6mm;
-    height: 6mm;
-    background: var(--ai);
-    border-radius: 1.5mm;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .section-heading-icon svg {
-    width: 3.8mm;
-    height: 3.8mm;
-    fill: none;
-    stroke: #fff;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .section-heading h2 {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 4.2mm;
-    color: var(--ai);
-    letter-spacing: 0.1em;
-  }
-
-  .section-heading-line {
-    flex: 1;
-    height: 0.2mm;
-    background: linear-gradient(to right, var(--ai) 0%, transparent 100%);
-    opacity: 0.2;
-  }
-
-  /* 2カラムレイアウト */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5mm;
-    margin-bottom: 5mm;
-  }
-
-  /* 歓迎カード */
-  .welcome-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2mm;
-  }
-
-  .welcome-card {
-    background: #fff;
-    border: 0.3mm solid rgba(27,58,92,0.08);
-    border-radius: 2mm;
-    padding: 2.5mm;
-    display: flex;
-    align-items: center;
-    gap: 2mm;
-  }
-
-  .welcome-card-icon {
-    width: 7mm;
-    height: 7mm;
-    background: var(--ai-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .welcome-card-icon svg {
-    width: 4mm;
-    height: 4mm;
-  }
-
-  .welcome-card-text {
-    font-size: 2.6mm;
-    font-weight: 500;
-    color: var(--darkgray);
-    line-height: 1.4;
-  }
-
-  /* 稽古情報テーブル */
-  .practice-info {
-    background: #fff;
-    border: 0.3mm solid rgba(27,58,92,0.08);
-    border-radius: 2mm;
-    overflow: hidden;
-  }
-
-  .practice-row {
-    display: flex;
-    align-items: stretch;
-    border-bottom: 0.2mm solid rgba(27,58,92,0.06);
-  }
-  .practice-row:last-child { border-bottom: none; }
-
-  .practice-label {
-    width: 16mm;
-    background: var(--ai);
-    color: #fff;
-    font-size: 2.6mm;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.2mm 2mm;
-    letter-spacing: 0.1em;
-    flex-shrink: 0;
-  }
-
-  .practice-value {
-    flex: 1;
-    padding: 2.2mm 3mm;
-    font-size: 2.8mm;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    color: var(--darkgray);
-  }
-
-  .merit-text {
-    font-size: 2.2mm;
-    color: #888;
-    text-align: center;
-    margin-top: 2mm;
-    line-height: 1.6;
-    letter-spacing: 0.03em;
-  }
-
-  /* 体験案内セクション */
-  .trial-section {
-    background: linear-gradient(135deg, var(--ai) 0%, var(--ai-mid) 100%);
-    border-radius: 3mm;
-    padding: 5mm 6mm 4mm;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    gap: 5mm;
-  }
-
-  .trial-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.04;
-    background-image: radial-gradient(circle at 2px 2px, #fff 0.5px, transparent 0.5px);
-    background-size: 8mm 8mm;
-    pointer-events: none;
-  }
-
-  .trial-left {
-    flex: 1;
-    text-align: center;
-    position: relative;
-  }
-
-  .trial-heading {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 5mm;
-    letter-spacing: 0.15em;
-    margin-bottom: 2mm;
-  }
-
-  .trial-text {
-    font-size: 2.6mm;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.7;
-    margin-bottom: 3mm;
-  }
-
-  .trial-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 2mm;
-    background: var(--shu);
-    color: #fff;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 600;
-    font-size: 3.3mm;
-    letter-spacing: 0.12em;
-    padding: 2.5mm 7mm;
-    border-radius: 1.5mm;
-    box-shadow: 0 2px 8px rgba(197,61,67,0.3);
-  }
-
-  .trial-cta svg {
-    width: 3.5mm;
-    height: 3.5mm;
-  }
-
-  .contact-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2mm;
-    margin-top: 2.5mm;
-  }
-
-  .contact-row svg {
-    width: 3mm;
-    height: 3mm;
-    stroke: rgba(255,255,255,0.6);
-    fill: none;
-    stroke-width: 1.8;
-  }
-
-  .contact-email {
-    font-size: 2.8mm;
-    color: rgba(255,255,255,0.8);
-    letter-spacing: 0.05em;
-    font-weight: 400;
-  }
-
-  .contact-note {
-    font-size: 2.1mm;
-    color: rgba(255,255,255,0.4);
-    margin-top: 1.5mm;
-    letter-spacing: 0.05em;
-  }
-
-  /* QRコードエリア */
-  .qr-area {
-    flex-shrink: 0;
-    width: 28mm;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5mm;
-    position: relative;
-  }
-
-  .qr-box {
-    width: 25mm;
-    height: 25mm;
-    background: #fff;
-    border-radius: 1.5mm;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5mm;
-  }
-
-  .qr-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  /* QRプレースホルダー（画像未設定時） */
-  .qr-placeholder {
-    width: 100%;
-    height: 100%;
-    border: 0.3mm dashed rgba(27,58,92,0.2);
-    border-radius: 1mm;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1mm;
-  }
-
-  .qr-placeholder svg {
-    width: 8mm;
-    height: 8mm;
-    stroke: rgba(27,58,92,0.25);
-    fill: none;
-    stroke-width: 1.2;
-  }
-
-  .qr-placeholder span {
-    font-size: 1.8mm;
-    color: rgba(27,58,92,0.3);
-  }
-
-  .qr-label {
-    font-size: 2mm;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.05em;
-    text-align: center;
-  }
-
-  /* フッター */
-  .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--ai-deep);
-    padding: 2.5mm 12mm;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 2mm;
-  }
-
-  .footer-logo {
-    width: 5mm;
-    height: 5mm;
-    background: rgba(255,255,255,0.15);
-    border-radius: 1mm;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-logo span {
-    font-family: 'Shippori Mincho B1', serif;
-    font-size: 2.8mm;
-    color: #fff;
-    font-weight: 700;
-  }
-
-  .footer-name {
-    font-family: 'Shippori Mincho B1', serif;
-    font-size: 2.8mm;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.15em;
-  }
-
-  .footer-year {
-    font-size: 2.2mm;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.05em;
-  }
-
-  /* 装飾：角の紋様 */
-  .corner-deco {
-    position: absolute;
-    width: 8mm;
-    height: 8mm;
-    opacity: 0.08;
-    z-index: 0;
-  }
-
-  .corner-deco--bl {
-    bottom: 12mm;
-    left: 12mm;
-    border-bottom: 0.5mm solid var(--ai);
-    border-left: 0.5mm solid var(--ai);
-  }
-
-  .corner-deco--br {
-    bottom: 12mm;
-    right: 12mm;
-    border-bottom: 0.5mm solid var(--ai);
-    border-right: 0.5mm solid var(--ai);
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>明倫館 部員募集チラシ A4</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B3A5C'/><text x='16' y='24' text-anchor='middle' font-size='22' font-weight='700' fill='white' font-family='serif'>明</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ai: #1B3A5C;
+      --ai-deep: #0F2640;
+      --ai-mid: #2A4F75;
+      --ai-light: #EDF2F7;
+      --shu: #C53D43;
+      --shu-dark: #A83238;
+      --offwhite: #FAFAF5;
+      --darkgray: #2D2D2D;
+      --gold: #B8963E;
+    }
+
+    body {
+      background: #888;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      min-height: 100vh;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--darkgray);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 塗り足し込み（3mm四方） */
+    .page {
+      width: 216mm;
+      height: 303mm;
+      background: var(--offwhite);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+        width: 216mm;
+        height: 303mm;
+      }
+
+      @page {
+        size: 216mm 303mm;
+        margin: 0;
+      }
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      background-image: radial-gradient(circle at 2px 2px, var(--ai) 1px, transparent 1px);
+      background-size: 12mm 12mm;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== ヘッダー ===== */
+    .header-band {
+      background: linear-gradient(135deg, var(--ai-deep) 0%, var(--ai) 40%, var(--ai-mid) 100%);
+      height: 62mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .header-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image:
+        linear-gradient(30deg, transparent 40%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.5) 41%, transparent 41%),
+        linear-gradient(150deg, transparent 40%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.5) 41%, transparent 41%),
+        linear-gradient(90deg, transparent 49%, rgba(255, 255, 255, 0.5) 49%, rgba(255, 255, 255, 0.5) 51%, transparent 51%);
+      background-size: 20mm 34.6mm;
+      pointer-events: none;
+    }
+
+    .header-band::after {
+      content: '';
+      position: absolute;
+      top: 8mm;
+      bottom: 8mm;
+      left: 12mm;
+      right: 12mm;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 20mm;
+    }
+
+    .club-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 2.8mm;
+      letter-spacing: 0.8em;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 2mm;
+    }
+
+    .club-name {
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 700;
+      font-size: 11mm;
+      color: #fff;
+      letter-spacing: 0.15em;
+      margin-bottom: 2.5mm;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .divider-line {
+      width: 25mm;
+      height: 0.3mm;
+      background: var(--gold);
+      margin: 0 auto 2.5mm;
+      opacity: 0.7;
+    }
+
+    .recruit-copy {
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 700;
+      font-size: 7.5mm;
+      color: #fff;
+      letter-spacing: 0.12em;
+      line-height: 1.5;
+      margin-bottom: 2mm;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .catchcopy-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      font-size: 2.6mm;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.08em;
+      line-height: 1.7;
+    }
+
+    .recruit-badge {
+      position: absolute;
+      top: 0;
+      right: 18mm;
+      background: var(--shu);
+      color: #fff;
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 700;
+      font-size: 5mm;
+      letter-spacing: 0.2em;
+      padding: 4mm 4mm 5mm;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      z-index: 2;
+      box-shadow: 0 3px 10px rgba(197, 61, 67, 0.3);
+    }
+
+    .recruit-badge::after {
+      content: '';
+      position: absolute;
+      bottom: -3mm;
+      left: 0;
+      right: 0;
+      height: 3mm;
+      background: linear-gradient(to bottom right, var(--shu) 50%, transparent 50%),
+        linear-gradient(to bottom left, var(--shu) 50%, transparent 50%);
+      background-size: 50% 100%;
+      background-repeat: no-repeat;
+      background-position: left, right;
+    }
+
+    /* ===== メインコンテンツ ===== */
+    .main-content {
+      padding: 4mm 12mm 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 修正1: 紹介文 */
+    .intro-section {
+      text-align: center;
+      margin-bottom: 4mm;
+      padding: 0 3mm;
+    }
+
+    .intro-text {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      font-size: 2.8mm;
+      line-height: 1.9;
+      color: var(--darkgray);
+      letter-spacing: 0.04em;
+    }
+
+    .intro-highlight {
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 600;
+      color: var(--ai);
+    }
+
+    .intro-voice {
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 500;
+      font-size: 2.8mm;
+      color: var(--ai-mid);
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    /* ===== 写真エリア ===== */
+    .photo-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin: 0 3mm 4mm;
+    }
+
+    .photo-main-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-main-item {
+      border-radius: 2.5mm;
+      position: relative;
+      overflow: hidden;
+      height: 46mm;
+    }
+
+    .photo-main-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-main-item::before,
+    .photo-main-item::after {
+      content: '';
+      position: absolute;
+      width: 5mm;
+      height: 5mm;
+      border-color: rgba(255, 255, 255, 0.5);
+      border-style: solid;
+      z-index: 1;
+    }
+
+    .photo-main-item::before {
+      top: 2.5mm;
+      left: 2.5mm;
+      border-width: 0.4mm 0 0 0.4mm;
+    }
+
+    .photo-main-item::after {
+      bottom: 2.5mm;
+      right: 2.5mm;
+      border-width: 0 0.4mm 0.4mm 0;
+    }
+
+    .photo-caption {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 500;
+      font-size: 2.8mm;
+      color: var(--darkgray);
+      text-align: center;
+      margin-top: 1.5mm;
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== 2カラム ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin-bottom: 4mm;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+      margin-bottom: 2.5mm;
+    }
+
+    .section-heading-icon {
+      width: 5.5mm;
+      height: 5.5mm;
+      background: var(--ai);
+      border-radius: 1.5mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-heading-icon svg {
+      width: 3.5mm;
+      height: 3.5mm;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .section-heading h2 {
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 700;
+      font-size: 4mm;
+      color: var(--ai);
+      letter-spacing: 0.1em;
+    }
+
+    .section-heading-line {
+      flex: 1;
+      height: 0.2mm;
+      background: linear-gradient(to right, var(--ai) 0%, transparent 100%);
+      opacity: 0.2;
+    }
+
+    /* 歓迎カード: 修正4で5項目に */
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5mm;
+    }
+
+    .welcome-card {
+      background: #fff;
+      border: 0.3mm solid rgba(27, 58, 92, 0.08);
+      border-radius: 2mm;
+      padding: 2mm 2.5mm;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .welcome-card-icon {
+      width: 6.5mm;
+      height: 6.5mm;
+      background: var(--ai-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .welcome-card-icon svg {
+      width: 3.5mm;
+      height: 3.5mm;
+    }
+
+    .welcome-card-text {
+      font-size: 2.5mm;
+      font-weight: 500;
+      color: var(--darkgray);
+      line-height: 1.4;
+    }
+
+    /* 稽古情報 */
+    .practice-info {
+      background: #fff;
+      border: 0.3mm solid rgba(27, 58, 92, 0.08);
+      border-radius: 2mm;
+      overflow: hidden;
+    }
+
+    .practice-row {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 0.2mm solid rgba(27, 58, 92, 0.06);
+    }
+
+    .practice-row:last-child {
+      border-bottom: none;
+    }
+
+    .practice-label {
+      width: 14mm;
+      background: var(--ai);
+      color: #fff;
+      font-size: 2.5mm;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2mm;
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+    }
+
+    .practice-value {
+      flex: 1;
+      padding: 2mm 3mm;
+      font-size: 2.6mm;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      color: var(--darkgray);
+    }
+
+    /* 修正3: 保護者の声 */
+    .voices-section {
+      margin-bottom: 4mm;
+    }
+
+    .voices-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+    }
+
+    .voice-card {
+      background: #fff;
+      border: 0.3mm solid rgba(27, 58, 92, 0.08);
+      border-radius: 2mm;
+      padding: 3mm 3.5mm;
+      position: relative;
+    }
+
+    .voice-card::before {
+      content: '\201C';
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 8mm;
+      color: #9BB0C9;
+      position: absolute;
+      top: 0.5mm;
+      left: 2mm;
+      line-height: 1;
+    }
+
+    .voice-text {
+      font-size: 2.8mm;
+      line-height: 1.7;
+      color: var(--darkgray);
+      margin-bottom: 1.5mm;
+      position: relative;
+    }
+
+    .voice-attr {
+      font-size: 2.5mm;
+      color: #999;
+      text-align: right;
+      letter-spacing: 0.03em;
+    }
+
+    /* ===== 体験案内 ===== */
+    .trial-section {
+      background: linear-gradient(135deg, var(--ai) 0%, var(--ai-mid) 100%);
+      border-radius: 3mm;
+      padding: 4mm 5mm 3.5mm;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+    }
+
+    .trial-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: radial-gradient(circle at 2px 2px, #fff 0.5px, transparent 0.5px);
+      background-size: 8mm 8mm;
+      pointer-events: none;
+    }
+
+    .trial-left {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+
+    .trial-heading {
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 700;
+      font-size: 4.5mm;
+      letter-spacing: 0.15em;
+      margin-bottom: 2mm;
+    }
+
+    /* 修正2: 体験情報 */
+    .trial-points {
+      display: flex;
+      justify-content: center;
+      gap: 4mm;
+      margin-bottom: 2.5mm;
+      position: relative;
+    }
+
+    .trial-point {
+      display: flex;
+      align-items: center;
+      gap: 1mm;
+      font-size: 2.8mm;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    .trial-point-check {
+      color: var(--gold);
+      font-size: 3mm;
+      line-height: 1;
+    }
+
+    .trial-point-highlight {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.8mm 2.5mm;
+      border-radius: 1mm;
+      font-weight: 700;
+      font-size: 3mm;
+      color: #fff;
+    }
+
+    .trial-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 2mm;
+      background: var(--shu);
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 3.5mm;
+      letter-spacing: 0.1em;
+      padding: 2.5mm 7mm;
+      border-radius: 1.5mm;
+      box-shadow: 0 2px 8px rgba(197, 61, 67, 0.3);
+    }
+
+    .trial-cta svg {
+      width: 3.5mm;
+      height: 3.5mm;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2mm;
+      margin-top: 2mm;
+    }
+
+    .contact-row svg {
+      width: 3mm;
+      height: 3mm;
+      stroke: rgba(255, 255, 255, 0.6);
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .contact-email {
+      font-size: 3.2mm;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .contact-note {
+      font-size: 2.1mm;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 1mm;
+      letter-spacing: 0.05em;
+    }
+
+    /* QRコード */
+    .qr-area {
+      flex-shrink: 0;
+      width: 28mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5mm;
+      position: relative;
+    }
+
+    .qr-box {
+      width: 25mm;
+      height: 25mm;
+      background: #fff;
+      border-radius: 1.5mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5mm;
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .qr-placeholder {
+      width: 100%;
+      height: 100%;
+      border: 0.3mm dashed rgba(27, 58, 92, 0.2);
+      border-radius: 1mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1mm;
+    }
+
+    .qr-placeholder svg {
+      width: 8mm;
+      height: 8mm;
+      stroke: rgba(27, 58, 92, 0.25);
+      fill: none;
+      stroke-width: 1.2;
+    }
+
+    .qr-placeholder span {
+      font-size: 1.8mm;
+      color: rgba(27, 58, 92, 0.3);
+    }
+
+    .qr-label {
+      font-size: 2.2mm;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.05em;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* フッター */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ai-deep);
+      padding: 2.5mm 12mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .footer-logo {
+      width: 5mm;
+      height: 5mm;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 1mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo span {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 2.8mm;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .footer-name {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 2.8mm;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.15em;
+    }
+
+  </style>
 </head>
+
 <body>
 
-<div class="page">
-  <!-- 部員募集リボン -->
-  <div class="recruit-badge">部員募集</div>
+  <div class="page">
+    <div class="recruit-badge">部員募集</div>
 
-  <!-- ===== ヘッダー ===== -->
-  <div class="header-band">
-    <div class="header-content">
-      <p class="club-label">剣道クラブ</p>
-      <h1 class="club-name">明倫館</h1>
-      <div class="divider-line"></div>
-      <p class="recruit-copy">
-        一緒に剣道、はじめませんか？
-      </p>
-      <p class="catchcopy-sub">
-        みんなで励まし合い、心と体を鍛えています。<br>
-        初心者大歓迎！まずは体験にお越しください。
-      </p>
-    </div>
-  </div>
-
-  <!-- ===== メインコンテンツ ===== -->
-  <div class="main-content">
-
-    <!-- 紹介文 -->
-    <div class="intro-section">
-      <p class="intro-text">
-        明倫館は<span class="intro-highlight">「礼」</span>を大切に、相手を思いやる心を育み、
-        <span class="intro-highlight">「強く・正しく・美しい」</span>剣道を目指して日々稽古に励んでいます。<br>
-        楽しく仲間と剣道を学ぶうちに、規律正しく、忍耐力のある強靭な身体と精神力を養います。
-      </p>
-    </div>
-
-    <!-- ===== 写真エリア（中央2枚） ===== -->
-    <div class="photo-main">
-      <div class="photo-main-col">
-        <div class="photo-main-item">
-          <img src="public/images/practice1.jpg" alt="屋外での稽古風景">
-        </div>
-        <p class="photo-caption">剣道を始めるきっかけはそれぞれです。<br>どんな理由でも大歓迎！</p>
-      </div>
-      <div class="photo-main-col">
-        <div class="photo-main-item">
-          <img src="public/images/welcome.jpg" alt="イベントを楽しむ子どもたち">
-        </div>
-        <p class="photo-caption">稽古だけじゃない！<br>クリスマス会など楽しいイベントも！</p>
-      </div>
-    </div>
-
-    <!-- 2カラム: 歓迎 + 稽古 -->
-    <div class="two-col">
-      <!-- 左: こんな子を歓迎 -->
-      <div>
-        <div class="section-heading">
-          <div class="section-heading-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          </div>
-          <h2>こんな子を歓迎</h2>
-          <div class="section-heading-line"></div>
-        </div>
-
-        <div class="welcome-grid">
-          <div class="welcome-card">
-            <div class="welcome-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="6" y1="20" x2="10" y2="14"/>
-                <ellipse cx="10.5" cy="13.5" rx="1.8" ry="0.8" transform="rotate(-50 10.5 13.5)"/>
-                <line x1="11" y1="13" x2="19" y2="3" stroke-width="2.5"/>
-              </svg>
-            </div>
-            <span class="welcome-card-text">剣道に<br>興味がある子</span>
-          </div>
-          <div class="welcome-card">
-            <div class="welcome-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.48 2 2 6 2 10.5c0 3 2 5.5 5 7v4.5l3-2 2 0 0 0 2 0 3 2v-4.5c3-1.5 5-4 5-7C22 6 17.52 2 12 2z"/>
-              </svg>
-            </div>
-            <span class="welcome-card-text">礼儀を<br>身に付けたい子</span>
-          </div>
-          <div class="welcome-card">
-            <div class="welcome-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/>
-                <path d="M3 21v-2a4 4 0 014-4h2m6 0h2a4 4 0 014 4v2"/>
-              </svg>
-            </div>
-            <span class="welcome-card-text">友だちを<br>作りたい子</span>
-          </div>
-          <div class="welcome-card">
-            <div class="welcome-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 6h14c0 0 1 0 1 1v10c0 1-1 1-1 1H5"/>
-                <line x1="5" y1="4" x2="5" y2="20" stroke-width="2"/>
-                <line x1="9" y1="10" x2="16" y2="10" stroke-width="1"/>
-                <line x1="9" y1="13" x2="14" y2="13" stroke-width="1"/>
-              </svg>
-            </div>
-            <span class="welcome-card-text">武将や刀が<br>好きな子など</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- 右: 稽古案内 -->
-      <div>
-        <div class="section-heading">
-          <div class="section-heading-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <h2>稽古案内</h2>
-          <div class="section-heading-line"></div>
-        </div>
-
-        <div class="practice-info">
-          <div class="practice-row">
-            <div class="practice-label">日 時</div>
-            <div class="practice-value" style="font-weight: 600;">日曜日 16:00〜18:00<br><span style="font-size: 2.2mm; font-weight: 400; color: #888;">※ 夏時期は16:30開始</span></div>
-          </div>
-          <div class="practice-row">
-            <div class="practice-label">対 象</div>
-            <div class="practice-value">小学生</div>
-          </div>
-          <div class="practice-row">
-            <div class="practice-label">場 所</div>
-            <div class="practice-value">南百合丘小学校体育館</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- 体験案内 CTA -->
-    <div class="trial-section">
-      <div class="trial-left">
-        <h2 class="trial-heading">体験のご案内</h2>
-        <p class="trial-text">
-          まずは、体験で剣道を身近に感じてください。<br>ご連絡お待ちしております。
+    <!-- ===== ヘッダー ===== -->
+    <div class="header-band">
+      <div class="header-content">
+        <p class="club-label">剣道クラブ</p>
+        <h1 class="club-name">明倫館</h1>
+        <div class="divider-line"></div>
+        <p class="recruit-copy">
+          一緒に剣道、はじめませんか？
         </p>
-        <div class="trial-cta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
-          </svg>
-          体験のお申し込みはこちら
-        </div>
-        <div class="contact-row">
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
-          </svg>
-          <span class="contact-email">meirinkan2021@gmail.com</span>
-        </div>
-        <p class="contact-note">お気軽にお問い合わせください</p>
+        <p class="catchcopy-sub">
+          みんなで励まし合い、心と体を鍛えています。<br>
+          初心者大歓迎！まずは体験にお越しください。
+        </p>
       </div>
-      <!-- QRコード: public/images/qr.png 等に画像を置いて差し替え -->
-      <div class="qr-area">
-        <div class="qr-box">
-          <!-- QR画像がある場合: <img src="public/images/qr.png" alt="QRコード"> -->
-          <div class="qr-placeholder">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="4" height="4"/>
-              <line x1="21" y1="14" x2="21" y2="21"/><line x1="14" y1="21" x2="21" y2="21"/>
-            </svg>
-            <span>QR準備中</span>
+    </div>
+
+    <!-- ===== メインコンテンツ ===== -->
+    <div class="main-content">
+
+      <!-- 修正1: 紹介文（保護者の気持ちに寄せる） -->
+      <div class="intro-section">
+        <p class="intro-text">
+          明倫館は<span class="intro-highlight">「礼」</span>を大切に、仲間を思いやる心を育む剣道クラブです。
+        </p>
+        <p class="intro-voice">
+          「大きな声であいさつができるようになった」「自分から頑張れるようになった」
+        </p>
+        <p class="intro-text">
+          そんなお子さんの成長を、一緒に見守りませんか？
+        </p>
+      </div>
+
+      <!-- 写真エリア（修正7: キャプション改善） -->
+      <div class="photo-main">
+        <div class="photo-main-col">
+          <div class="photo-main-item">
+            <img src="public/images/practice1.jpg" alt="屋外での稽古風景">
+          </div>
+          <p class="photo-caption">初めてでも大丈夫。<br>基礎から丁寧に指導します。</p>
+        </div>
+        <div class="photo-main-col">
+          <div class="photo-main-item">
+            <img src="public/images/welcome.jpg" alt="イベントを楽しむ子どもたち">
+          </div>
+          <p class="photo-caption">稽古だけじゃない！<br>クリスマス会など楽しいイベントも！</p>
+        </div>
+      </div>
+
+      <!-- 2カラム: 歓迎 + 稽古 -->
+      <div class="two-col">
+        <!-- 左: こんな子を歓迎（修正4: 5項目に） -->
+        <div>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg>
+            </div>
+            <h2>こんな子を歓迎</h2>
+            <div class="section-heading-line"></div>
+          </div>
+
+          <div class="welcome-grid">
+            <div class="welcome-card">
+              <div class="welcome-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <line x1="6" y1="20" x2="10" y2="14" />
+                  <ellipse cx="10.5" cy="13.5" rx="1.8" ry="0.8" transform="rotate(-50 10.5 13.5)" />
+                  <line x1="11" y1="13" x2="19" y2="3" stroke-width="2.5" />
+                </svg>
+              </div>
+              <span class="welcome-card-text">剣道に興味がある子</span>
+            </div>
+            <div class="welcome-card">
+              <div class="welcome-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M12 2C6.48 2 2 6 2 10.5c0 3 2 5.5 5 7v4.5l3-2 2 0 0 0 2 0 3 2v-4.5c3-1.5 5-4 5-7C22 6 17.52 2 12 2z" />
+                </svg>
+              </div>
+              <span class="welcome-card-text">礼儀を身に付けたい子</span>
+            </div>
+            <div class="welcome-card">
+              <div class="welcome-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="9" cy="7" r="3" />
+                  <circle cx="15" cy="7" r="3" />
+                  <path d="M3 21v-2a4 4 0 014-4h2m6 0h2a4 4 0 014 4v2" />
+                </svg>
+              </div>
+              <span class="welcome-card-text">友だちを作りたい子</span>
+            </div>
+            <div class="welcome-card">
+              <div class="welcome-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 6h14c0 0 1 0 1 1v10c0 1-1 1-1 1H5" />
+                  <line x1="5" y1="4" x2="5" y2="20" stroke-width="2" />
+                  <line x1="9" y1="10" x2="16" y2="10" stroke-width="1" />
+                  <line x1="9" y1="13" x2="14" y2="13" stroke-width="1" />
+                </svg>
+              </div>
+              <span class="welcome-card-text">武将や刀が好きな子など</span>
+            </div>
+            <div class="welcome-card">
+              <div class="welcome-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" />
+                </svg>
+              </div>
+              <span class="welcome-card-text">何か新しいことを始めたい子</span>
+            </div>
+            <div class="welcome-card">
+              <div class="welcome-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <span class="welcome-card-text">体を動かすのが好きな子</span>
+            </div>
           </div>
         </div>
-        <span class="qr-label">詳しくはこちら</span>
+
+        <!-- 右: 稽古案内（修正5: 会費追加） -->
+        <div>
+          <div class="section-heading">
+            <div class="section-heading-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+            <h2>稽古案内</h2>
+            <div class="section-heading-line"></div>
+          </div>
+
+          <div class="practice-info">
+            <div class="practice-row">
+              <div class="practice-label">日 時</div>
+              <div class="practice-value" style="font-weight: 600;">日曜日 16:00〜18:00<br><span
+                  style="font-size: 2.8mm; font-weight: 400; color: #888;">※ 夏時期は16:30開始</span></div>
+            </div>
+            <div class="practice-row">
+              <div class="practice-label">場 所</div>
+              <div class="practice-value">南百合丘小学校体育館</div>
+            </div>
+            <div class="practice-row">
+              <div class="practice-label">対 象</div>
+              <div class="practice-value">小学生</div>
+            </div>
+            <div class="practice-row">
+              <div class="practice-label">会 費</div>
+              <div class="practice-value">月額 1,000円<br><span
+                  style="font-size: 2.8mm; font-weight: 400; color: #888;">※詳細はお問い合わせください</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 修正3: 保護者の声 -->
+      <div class="voices-section">
+        <div class="section-heading" style="margin-bottom: 2mm;">
+          <div class="section-heading-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <h2>保護者の声</h2>
+          <div class="section-heading-line"></div>
+        </div>
+        <div class="voices-grid">
+          <div class="voice-card">
+            <p class="voice-text">引っ込み思案だった息子が、大きな声で挨拶できるようになりました。先生方も優しく、安心して通わせています。</p>
+            <p class="voice-attr">— 小5男子の保護者</p>
+          </div>
+          <div class="voice-card">
+            <p class="voice-text">友だちと一緒に汗を流す姿を見ると、始めさせてよかったと思います。楽しく続けられています。</p>
+            <p class="voice-attr">— 小4女子の保護者</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 体験案内 CTA（修正2 & 修正6） -->
+      <div class="trial-section">
+        <div class="trial-left">
+          <h2 class="trial-heading">体験のご案内</h2>
+          <!-- 修正2: ハードルを下げる情報 -->
+          <div class="trial-points">
+            <span class="trial-point"><span class="trial-point-check">✓</span> 体験無料</span>
+            <span class="trial-point trial-point-highlight">手ぶらでOK!</span>
+            <span class="trial-point"><span class="trial-point-check">✓</span> 動きやすい服装だけ</span>
+          </div>
+          <!-- 修正6: CTAボタンに「無料」 -->
+          <div class="trial-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="M22 7l-10 7L2 7" />
+            </svg>
+            無料体験に申し込む
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="M22 7l-10 7L2 7" />
+            </svg>
+            <!-- 修正6: メールアドレスを大きく -->
+            <span class="contact-email">meirinkan2021@gmail.com</span>
+          </div>
+          <p class="contact-note">お気軽にお問い合わせください</p>
+        </div>
+        <!-- QRコード（修正6: ラベル改善） -->
+        <div class="qr-area">
+          <!-- 修正6: QRの用途を明記 -->
+          <span class="qr-label">HPから簡単申し込み</span>
+          <div class="qr-box">
+            <!-- QR画像がある場合: <img src="public/images/qr.png" alt="QRコード"> -->
+            <div class="qr-placeholder">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="4" height="4" />
+                <line x1="21" y1="14" x2="21" y2="21" />
+                <line x1="14" y1="21" x2="21" y2="21" />
+              </svg>
+              <span>QR準備中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">
+        <div class="footer-logo"><span>明</span></div>
+        <span class="footer-name">明倫館 剣道クラブ</span>
       </div>
     </div>
-
   </div>
-
-  <!-- 装飾 -->
-  <div class="corner-deco corner-deco--bl"></div>
-  <div class="corner-deco corner-deco--br"></div>
-
-  <!-- フッター -->
-  <div class="footer">
-    <div class="footer-left">
-      <div class="footer-logo"><span>明</span></div>
-      <span class="footer-name">明倫館 剣道クラブ</span>
-    </div>
-    <span class="footer-year"></span>
-  </div>
-</div>
 
 </body>
+
 </html>
