@@ -16,10 +16,13 @@ export default function Trial() {
           体験のご案内
         </h2>
         <div className="w-12 h-px bg-shu mx-auto mb-6" />
-        <p className="text-center text-base mb-12 max-w-lg mx-auto">
+        <p className="text-center text-base mb-6 max-w-lg mx-auto">
           まずは、体験で剣道を身近に感じてください。
           <br />
           ご連絡お待ちしております。
+        </p>
+        <p className="text-center text-sm md:text-base font-bold text-ai bg-white rounded-lg py-3 px-6 mb-12 max-w-md mx-auto shadow-sm">
+          入会後、道着・防具は無料でレンタルできます！
         </p>
 
         <div className="relative aspect-video max-w-2xl mx-auto mb-12 rounded-lg overflow-hidden">
