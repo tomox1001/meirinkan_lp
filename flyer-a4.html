@@ -512,10 +512,45 @@
       gap: 4mm;
     }
 
-    .trial-bear {
+    .trial-bear-wrap {
       flex-shrink: 0;
       width: 28mm;
-      height: 32mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .trial-bear-bubble {
+      background: #fff;
+      color: var(--ai);
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 2.6mm;
+      letter-spacing: 0.05em;
+      padding: 1.2mm 3mm;
+      border-radius: 3mm;
+      position: relative;
+      margin-bottom: 1.5mm;
+      white-space: nowrap;
+    }
+
+    .trial-bear-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -1.8mm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 1.5mm solid transparent;
+      border-right: 1.5mm solid transparent;
+      border-top: 2mm solid #fff;
+    }
+
+    .trial-bear {
+      width: 28mm;
+      height: 30mm;
       border-radius: 3mm;
       overflow: hidden;
       border: 0.5mm solid rgba(255, 255, 255, 0.2);
@@ -961,8 +996,11 @@
 
       <!-- 体験案内 CTA（修正2 & 修正6） -->
       <div class="trial-section">
-        <div class="trial-bear">
-          <img src="public/images/bear.jpg" alt="剣道くまのぬいぐるみ">
+        <div class="trial-bear-wrap">
+          <div class="trial-bear-bubble">遊びに来てね！</div>
+          <div class="trial-bear">
+            <img src="public/images/bear.jpg" alt="剣道くまのぬいぐるみ">
+          </div>
         </div>
         <div class="trial-left">
           <h2 class="trial-heading">体験のご案内</h2>
