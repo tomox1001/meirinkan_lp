@@ -16,11 +16,23 @@ export default function Trial() {
           体験のご案内
         </h2>
         <div className="w-12 h-px bg-shu mx-auto mb-6" />
-        <p className="text-center text-base mb-12 max-w-lg mx-auto">
+        <p className="text-center text-base mb-8 max-w-lg mx-auto">
           まずは、体験で剣道を身近に感じてください。
           <br />
           ご連絡お待ちしております。
         </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12">
+          <span className="flex items-center gap-1.5 text-sm md:text-base font-bold text-ai">
+            <span className="text-shu">✓</span> 体験無料
+          </span>
+          <span className="bg-ai text-white text-sm md:text-base font-bold px-4 py-1.5 rounded-full">
+            手ぶらでOK!
+          </span>
+          <span className="flex items-center gap-1.5 text-sm md:text-base font-bold text-ai">
+            <span className="text-shu">✓</span> 動きやすい服装だけ
+          </span>
+        </div>
 
         <div className="relative aspect-video max-w-2xl mx-auto mb-12 rounded-lg overflow-hidden">
           <Image
