@@ -209,7 +209,7 @@
 
     /* ===== メインコンテンツ ===== */
     .main-content {
-      padding: 4mm 12mm 0;
+      padding: 3mm 12mm 0;
       position: relative;
       z-index: 1;
     }
@@ -217,7 +217,7 @@
     /* 修正1: 紹介文 */
     .intro-section {
       text-align: center;
-      margin-bottom: 4mm;
+      margin-bottom: 3mm;
       padding: 0 3mm;
     }
 
@@ -249,8 +249,8 @@
     .photo-main {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4mm;
-      margin: 0 3mm 4mm;
+      gap: 3mm;
+      margin: 0 3mm 3mm;
     }
 
     .photo-main-col {
@@ -262,7 +262,7 @@
       border-radius: 4mm;
       position: relative;
       overflow: hidden;
-      height: 46mm;
+      height: 40mm;
     }
 
     .photo-main-item img {
@@ -311,7 +311,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5mm;
-      margin-bottom: 4mm;
+      margin-bottom: 3mm;
     }
 
     .section-heading {
@@ -449,7 +449,7 @@
 
     /* 修正3: 保護者の声 */
     .voices-section {
-      margin-bottom: 4mm;
+      margin-bottom: 3mm;
     }
 
     .voices-grid {
@@ -462,7 +462,7 @@
       background: #FFFBF7;
       border: 0.3mm solid rgba(123, 51, 68, 0.06);
       border-radius: 3.5mm;
-      padding: 3mm 3.5mm;
+      padding: 2.5mm 3mm;
       position: relative;
     }
 
@@ -472,16 +472,23 @@
       font-size: 8mm;
       color: #C99BAA;
       position: absolute;
-      top: 0.5mm;
+      top: -1mm;
       left: 2mm;
       line-height: 1;
+      z-index: 0;
+    }
+
+    .voice-text,
+    .voice-attr {
+      position: relative;
+      z-index: 1;
     }
 
     .voice-text {
-      font-size: 2.8mm;
-      line-height: 1.7;
+      font-size: 2.6mm;
+      line-height: 1.6;
       color: var(--darkgray);
-      margin-bottom: 1.5mm;
+      margin-bottom: 1mm;
       position: relative;
     }
 
@@ -496,7 +503,7 @@
     .trial-section {
       background: linear-gradient(135deg, var(--ai) 0%, var(--ai-mid) 100%);
       border-radius: 5mm;
-      padding: 4mm 5mm 3.5mm;
+      padding: 3mm 5mm 3mm;
       color: #fff;
       position: relative;
       overflow: hidden;
@@ -913,6 +920,29 @@
         </div>
       </div>
 
+      <!-- 子どもたちの声 -->
+      <div class="voices-section">
+        <div class="section-heading" style="margin-bottom: 2mm;">
+          <div class="section-heading-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <h2>子どもたちの声</h2>
+          <div class="section-heading-line"></div>
+        </div>
+        <div class="voices-grid">
+          <div class="voice-card">
+            <p class="voice-text">xxxxx</p>
+            <p class="voice-attr">— xxxxx</p>
+          </div>
+          <div class="voice-card">
+            <p class="voice-text">xxxxx</p>
+            <p class="voice-attr">— xxxxx</p>
+          </div>
+        </div>
+      </div>
+
       <!-- 体験案内 CTA（修正2 & 修正6） -->
       <div class="trial-section">
         <div class="trial-left">
@@ -923,24 +953,15 @@
             <span class="trial-point"><span class="trial-point-check">✓</span> 手ぶらでOK!</span>
             <span class="trial-point"><span class="trial-point-check">✓</span> 動きやすい服装だけ</span>
           </div>
-          <!-- 修正6: CTAボタンに「無料」 -->
+          <p class="contact-note" style="margin-top: 0; margin-bottom: 2mm; color: rgba(255,255,255,0.7); font-size: 2.5mm;">お気軽にお問い合わせください</p>
           <div class="trial-cta">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="M22 7l-10 7L2 7" />
             </svg>
-            無料体験に申し込む
+            meirinkan2021@gmail.com
           </div>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="M22 7l-10 7L2 7" />
-            </svg>
-            <!-- 修正6: メールアドレスを大きく -->
-            <span class="contact-email">meirinkan2021@gmail.com</span>
-          </div>
-          <p class="contact-note">お気軽にお問い合わせください</p>
         </div>
         <!-- QRコード（修正6: ラベル改善） -->
         <div class="qr-area">
