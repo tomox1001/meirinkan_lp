@@ -2,12 +2,12 @@
 
 @theme inline {
   /* カラーパレット */
-  --color-ai: #1B3A5C;
-  --color-ai-light: #EDF2F7;
-  --color-shu: #C53D43;
-  --color-shu-dark: #A83238;
-  --color-offwhite: #FAFAF5;
-  --color-darkgray: #2D2D2D;
+  --color-ai: #7B3344;
+  --color-ai-light: #F2E6E9;
+  --color-shu: #D4A259;
+  --color-shu-dark: #B8893D;
+  --color-offwhite: #F7F4F0;
+  --color-darkgray: #2C2C2C;
 
   /* フォント */
   --font-serif: var(--font-noto-serif-jp), serif;

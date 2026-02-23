@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-[60vh] md:min-h-[50vh] flex items-center justify-center pt-14 overflow-hidden">
       {/* 背景ビジュアル */}
-      <div className="absolute inset-0 bg-gradient-to-br from-ai via-[#1a3050] to-[#0f2035]">
+      <div className="absolute inset-0 bg-gradient-to-br from-ai via-[#6b2a3a] to-[#5C1F30]">
         {/* 和柄パターン（麻の葉風） */}
         <svg
           className="absolute inset-0 w-full h-full opacity-[0.06]"

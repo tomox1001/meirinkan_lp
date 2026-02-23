@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>明倫館 部員募集チラシ A4</title>
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B3A5C'/><text x='16' y='24' text-anchor='middle' font-size='22' font-weight='700' fill='white' font-family='serif'>明</text></svg>">
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%237B3344'/><text x='16' y='24' text-anchor='middle' font-size='22' font-weight='700' fill='white' font-family='serif'>明</text></svg>">
   <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
     rel="stylesheet">
   <style>
     *,
@@ -20,15 +20,15 @@
     }
 
     :root {
-      --ai: #1B3A5C;
-      --ai-deep: #0F2640;
-      --ai-mid: #2A4F75;
-      --ai-light: #EDF2F7;
-      --shu: #C53D43;
-      --shu-dark: #A83238;
-      --offwhite: #FAFAF5;
-      --darkgray: #2D2D2D;
-      --gold: #B8963E;
+      --ai: #7B3344;
+      --ai-deep: #5C1F30;
+      --ai-mid: #A85A6A;
+      --ai-light: #F2E6E9;
+      --shu: #D4A259;
+      --shu-dark: #B8893D;
+      --offwhite: #F7F4F0;
+      --darkgray: #2C2C2C;
+      --gold: #D4A259;
     }
 
     body {
@@ -38,7 +38,7 @@
       align-items: flex-start;
       padding: 20px;
       min-height: 100vh;
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
       color: var(--darkgray);
       -webkit-font-smoothing: antialiased;
     }
@@ -117,7 +117,7 @@
       left: 12mm;
       right: 12mm;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 2px;
+      border-radius: 4mm;
       pointer-events: none;
     }
 
@@ -129,7 +129,7 @@
     }
 
     .club-label {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
       font-weight: 300;
       font-size: 2.8mm;
       letter-spacing: 0.8em;
@@ -168,7 +168,7 @@
     }
 
     .catchcopy-sub {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
       font-weight: 400;
       font-size: 2.6mm;
       color: rgba(255, 255, 255, 0.55);
@@ -190,7 +190,7 @@
       writing-mode: vertical-rl;
       text-orientation: upright;
       z-index: 2;
-      box-shadow: 0 3px 10px rgba(197, 61, 67, 0.3);
+      box-shadow: 0 3px 10px rgba(212, 162, 89, 0.3);
     }
 
     .recruit-badge::after {
@@ -222,7 +222,7 @@
     }
 
     .intro-text {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
       font-weight: 400;
       font-size: 2.8mm;
       line-height: 1.9;
@@ -259,7 +259,7 @@
     }
 
     .photo-main-item {
-      border-radius: 2.5mm;
+      border-radius: 4mm;
       position: relative;
       overflow: hidden;
       height: 46mm;
@@ -296,7 +296,7 @@
     }
 
     .photo-caption {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
       font-weight: 500;
       font-size: 2.8mm;
       color: var(--darkgray);
@@ -325,7 +325,7 @@
       width: 5.5mm;
       height: 5.5mm;
       background: var(--ai);
-      border-radius: 1.5mm;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -366,12 +366,20 @@
 
     .welcome-card {
       background: #fff;
-      border: 0.3mm solid rgba(27, 58, 92, 0.08);
-      border-radius: 2mm;
+      border: 0.3mm solid rgba(123, 51, 68, 0.06);
+      border-radius: 3mm;
       padding: 2mm 2.5mm;
       display: flex;
       align-items: center;
       gap: 2mm;
+    }
+
+    .welcome-card:nth-child(odd) {
+      background: #FFF8F0;
+    }
+
+    .welcome-card:nth-child(even) {
+      background: #FFF0F3;
     }
 
     .welcome-card-icon {
@@ -400,15 +408,15 @@
     /* 稽古情報 */
     .practice-info {
       background: #fff;
-      border: 0.3mm solid rgba(27, 58, 92, 0.08);
-      border-radius: 2mm;
+      border: 0.3mm solid rgba(123, 51, 68, 0.06);
+      border-radius: 3mm;
       overflow: hidden;
     }
 
     .practice-row {
       display: flex;
       align-items: stretch;
-      border-bottom: 0.2mm solid rgba(27, 58, 92, 0.06);
+      border-bottom: 0.2mm solid rgba(123, 51, 68, 0.06);
     }
 
     .practice-row:last-child {
@@ -451,9 +459,9 @@
     }
 
     .voice-card {
-      background: #fff;
-      border: 0.3mm solid rgba(27, 58, 92, 0.08);
-      border-radius: 2mm;
+      background: #FFFBF7;
+      border: 0.3mm solid rgba(123, 51, 68, 0.06);
+      border-radius: 3.5mm;
       padding: 3mm 3.5mm;
       position: relative;
     }
@@ -462,7 +470,7 @@
       content: '\201C';
       font-family: 'Shippori Mincho B1', serif;
       font-size: 8mm;
-      color: #9BB0C9;
+      color: #C99BAA;
       position: absolute;
       top: 0.5mm;
       left: 2mm;
@@ -487,7 +495,7 @@
     /* ===== 体験案内 ===== */
     .trial-section {
       background: linear-gradient(135deg, var(--ai) 0%, var(--ai-mid) 100%);
-      border-radius: 3mm;
+      border-radius: 5mm;
       padding: 4mm 5mm 3.5mm;
       color: #fff;
       position: relative;
@@ -548,7 +556,7 @@
     .trial-point-highlight {
       background: rgba(255, 255, 255, 0.15);
       padding: 0.8mm 2.5mm;
-      border-radius: 1mm;
+      border-radius: 5mm;
       font-weight: 700;
       font-size: 3mm;
       color: #fff;
@@ -560,13 +568,13 @@
       gap: 2mm;
       background: var(--shu);
       color: #fff;
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
       font-weight: 700;
       font-size: 3.5mm;
       letter-spacing: 0.1em;
       padding: 2.5mm 7mm;
-      border-radius: 1.5mm;
-      box-shadow: 0 2px 8px rgba(197, 61, 67, 0.3);
+      border-radius: 10mm;
+      box-shadow: 0 2px 8px rgba(212, 162, 89, 0.3);
     }
 
     .trial-cta svg {
@@ -619,7 +627,7 @@
       width: 25mm;
       height: 25mm;
       background: #fff;
-      border-radius: 1.5mm;
+      border-radius: 3mm;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -635,7 +643,7 @@
     .qr-placeholder {
       width: 100%;
       height: 100%;
-      border: 0.3mm dashed rgba(27, 58, 92, 0.2);
+      border: 0.3mm dashed rgba(123, 51, 68, 0.2);
       border-radius: 1mm;
       display: flex;
       flex-direction: column;
@@ -647,14 +655,14 @@
     .qr-placeholder svg {
       width: 8mm;
       height: 8mm;
-      stroke: rgba(27, 58, 92, 0.25);
+      stroke: rgba(123, 51, 68, 0.25);
       fill: none;
       stroke-width: 1.2;
     }
 
     .qr-placeholder span {
       font-size: 1.8mm;
-      color: rgba(27, 58, 92, 0.3);
+      color: rgba(123, 51, 68, 0.3);
     }
 
     .qr-label {
@@ -688,7 +696,7 @@
       width: 5mm;
       height: 5mm;
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 1mm;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -707,7 +715,6 @@
       color: rgba(255, 255, 255, 0.6);
       letter-spacing: 0.15em;
     }
-
   </style>
 </head>
 
@@ -832,13 +839,13 @@
                     d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" />
                 </svg>
               </div>
-              <span class="welcome-card-text">何か新しいことを始めたい子</span>
+              <span class="welcome-card-text">新しいことを始めたい子</span>
             </div>
             <div class="welcome-card">
               <div class="welcome-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--ai)" stroke-width="1.8" stroke-linecap="round"
                   stroke-linejoin="round">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
               </div>
               <span class="welcome-card-text">体を動かすのが好きな子</span>
@@ -877,8 +884,7 @@
             </div>
             <div class="practice-row">
               <div class="practice-label">会 費</div>
-              <div class="practice-value">月額 1,000円<br><span
-                  style="font-size: 2.8mm; font-weight: 400; color: #888;">※詳細はお問い合わせください</span></div>
+              <div class="practice-value">月額 1,000円</div>
             </div>
           </div>
         </div>
