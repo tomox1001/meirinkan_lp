@@ -16,7 +16,7 @@ const notoSansJP = Noto_Sans_JP({
   display: "swap",
 });
 
-const SITE_URL = "https://meirinkan.vercel.app";
+const SITE_URL = "https://www.meirinkan.club";
 
 export const metadata: Metadata = {
   title: "明倫館 | 百合ヶ丘・新百合ヶ丘の小学生剣道クラブ",

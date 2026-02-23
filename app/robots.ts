@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://meirinkan.vercel.app/sitemap.xml",
+    sitemap: "https://www.meirinkan.club/sitemap.xml",
   };
 }
