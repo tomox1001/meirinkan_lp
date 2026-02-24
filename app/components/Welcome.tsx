@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Heart, Users } from "lucide-react";
+import FadeInSection from "./FadeInSection";
 
 const ShinaiIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -51,56 +52,59 @@ export default function Welcome() {
   return (
     <section id="welcome" className="py-20 md:py-28 bg-ai-light scroll-mt-16">
       <div className="max-w-5xl mx-auto px-6">
-        <h2 className="font-serif text-2xl md:text-3xl font-bold text-ai text-center mb-4">
-          こんな子を歓迎します
-        </h2>
-        <div className="w-12 h-px bg-shu mx-auto mb-6" />
-        <p className="text-center text-base mb-12 max-w-lg mx-auto">
-          剣道を始めるきっかけはそれぞれです。
-          <br />
-          どんな理由でも大歓迎！
-        </p>
+        <FadeInSection>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-ai text-center mb-4">
+            こんな子を歓迎します
+          </h2>
+          <div className="w-12 h-px bg-shu mx-auto mb-6" />
+          <p className="text-center text-base mb-12 max-w-lg mx-auto">
+            剣道を始めるきっかけはそれぞれです。
+            <br />
+            どんな理由でも大歓迎！
+          </p>
+        </FadeInSection>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
-          {reasons.map((reason) => (
-            <div
-              key={reason.title}
-              className="bg-white rounded-lg p-6 text-center shadow-sm"
-            >
-              <div className="text-ai mb-3 flex justify-center">
-                {reason.icon}
+          {reasons.map((reason, i) => (
+            <FadeInSection key={reason.title} delay={0.1 * i}>
+              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                <div className="text-ai mb-3 flex justify-center">
+                  {reason.icon}
+                </div>
+                <h3 className="font-serif text-sm md:text-base font-bold text-ai">
+                  {reason.title}
+                </h3>
               </div>
-              <h3 className="font-serif text-sm md:text-base font-bold text-ai">
-                {reason.title}
-              </h3>
-            </div>
+            </FadeInSection>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          <div className="relative aspect-video rounded-lg overflow-hidden">
-            <Image
-              src="/images/practice1.jpg"
-              alt="屋外での稽古風景"
-              fill
-              className="object-cover"
-            />
+        <FadeInSection>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-lg overflow-hidden">
+              <Image
+                src="/images/practice1.jpg"
+                alt="屋外での稽古風景"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden">
+              <Image
+                src="/images/welcome.jpg"
+                alt="イベントを楽しむ子どもたち"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
-          <div className="relative aspect-video rounded-lg overflow-hidden">
-            <Image
-              src="/images/welcome.jpg"
-              alt="イベントを楽しむ子どもたち"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
 
-        <p className="text-center text-base mt-6 max-w-lg mx-auto">
-          稽古だけじゃない！
-          <br />
-          クリスマス会など楽しいイベントも盛りだくさん！
-        </p>
+          <p className="text-center text-base mt-6 max-w-lg mx-auto">
+            稽古だけじゃない！
+            <br />
+            クリスマス会など楽しいイベントも盛りだくさん！
+          </p>
+        </FadeInSection>
       </div>
     </section>
   );
