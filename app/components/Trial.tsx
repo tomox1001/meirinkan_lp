@@ -39,17 +39,6 @@ export default function Trial() {
           </div>
         </FadeInSection>
 
-        <FadeInSection delay={0.2}>
-          <div className="relative aspect-video max-w-2xl mx-auto mb-12 rounded-lg overflow-hidden">
-            <Image
-              src="/images/hero.jpg"
-              alt="体験稽古の様子"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </FadeInSection>
-
         {/* 体験の流れ */}
         <FadeInSection>
           <h3 className="font-serif text-lg md:text-xl font-bold text-ai text-center mb-8">
