@@ -38,14 +38,6 @@ export default function About() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-video w-full rounded-lg overflow-hidden">
-                <Image
-                  src="/images/practice2.jpg"
-                  alt="体育館での稽古風景"
-                  fill
-                  className="object-cover"
-                />
-              </div>
             </div>
             <div className="w-full md:w-1/2">
               <p className="text-base leading-relaxed mb-6">
