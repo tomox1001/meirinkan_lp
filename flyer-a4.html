@@ -45,7 +45,7 @@
 
     /* 塗り足し込み（3mm四方） */
     .page {
-      width: 216mm;
+      width: 222mm;
       height: 303mm;
       background: var(--offwhite);
       position: relative;
@@ -63,12 +63,12 @@
       .page {
         box-shadow: none;
         margin: 0;
-        width: 216mm;
+        width: 222mm;
         height: 303mm;
       }
 
       @page {
-        size: 216mm 303mm;
+        size: 222mm 303mm;
         margin: 0;
       }
     }
@@ -107,15 +107,7 @@
     }
 
     .header-band::after {
-      content: '';
-      position: absolute;
-      top: 8mm;
-      bottom: 8mm;
-      left: 12mm;
-      right: 12mm;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 4mm;
-      pointer-events: none;
+      display: none;
     }
 
     .header-content {
@@ -127,8 +119,8 @@
 
     .club-label {
       font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
-      font-weight: 300;
-      font-size: 2.8mm;
+      font-weight: 500;
+      font-size: 3.8mm;
       letter-spacing: 0.8em;
       color: rgba(255, 255, 255, 0.5);
       margin-bottom: 2mm;
@@ -166,9 +158,9 @@
 
     .catchcopy-sub {
       font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
-      font-weight: 400;
-      font-size: 2.6mm;
-      color: rgba(255, 255, 255, 0.55);
+      font-weight: 500;
+      font-size: 3.2mm;
+      color: rgba(255, 255, 255, 0.65);
       letter-spacing: 0.08em;
       line-height: 1.7;
     }
@@ -721,8 +713,8 @@
     }
 
     .qr-label {
-      font-size: 2.2mm;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: 2.5mm;
+      color: rgba(255, 255, 255, 0.8);
       letter-spacing: 0.05em;
       text-align: center;
       font-weight: 500;
@@ -981,7 +973,7 @@
             <p class="voice-attr">— 小5男子の保護者</p>
           </div>
           <div class="voice-card">
-            <p class="voice-text">剣道はお金がかかると思っていましたが、明倫館では成長に合わせて防具を貸してくれるので親としては助かります。</p>
+            <p class="voice-text">剣道はお金がかかると思っていましたが、明倫館では成長に合わせて<br>防具を貸してくれるので親としては助かります。</p>
             <p class="voice-attr">— 小5女子の保護者</p>
           </div>
         </div>
@@ -1003,7 +995,7 @@
             <span class="trial-point"><span class="trial-point-check">✓</span> 手ぶらでOK!</span>
             <span class="trial-point"><span class="trial-point-check">✓</span> 動きやすい服装だけ</span>
           </div>
-          <p class="contact-note" style="margin-top: 0; margin-bottom: 2mm; color: rgba(255,255,255,0.7); font-size: 2.5mm;">お気軽にお問い合わせください</p>
+          <p class="contact-note" style="margin-top: 0; margin-bottom: 2mm; color: rgba(255,255,255,0.7); font-size: 3.2mm;">お気軽にお問い合わせください</p>
           <div class="trial-cta">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
